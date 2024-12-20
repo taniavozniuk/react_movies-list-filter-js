@@ -9,14 +9,11 @@ export const App = () => {
 
   const visibleMovies = moviesFromServer.filter(
     movie =>
-      movie.title
-        .replace(/\s+/g, '')
-        .toLowerCase()
-        .includes(query.toLowerCase()) ||
+      movie.title.toLowerCase().trim().includes(query.toLowerCase().trim()) ||
       movie.description
-        .replace(/\s+/g, '')
         .toLowerCase()
-        .includes(query.toLowerCase()),
+        .trim()
+        .includes(query.toLowerCase().trim()),
   );
 
   return (
